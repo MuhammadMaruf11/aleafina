@@ -1,0 +1,149 @@
+@use "common" as *;
+
+.header-area {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 90;
+}
+
+.header-logo {
+  img {
+    max-width: 100%;
+  }
+}
+
+
+.menu-bar {
+  a {
+    font-size: 34px;
+    color: #d9d9d6;
+
+    &.active {
+      opacity: 0;
+    }
+  }
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: $theme-color;
+  padding: 10px 0;
+}
+
+.menu-area {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgb(51 63 72 / 90%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -99;
+  @include transition(0.3s);
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    z-index: 9999;
+  }
+
+  .main-menu {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: block;
+        margin-bottom: 20px;
+
+        a {
+          color: #fff;
+          font-size: 35px;
+          font-family: 'Lora', serif;
+
+          &:hover {
+            color: #de6739;
+          }
+        }
+      }
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 268px;
+    top: 25px;
+    @include mq(xl) {
+      right: 60px;
+    }
+    @include mq(lg) {
+      right: 60px;
+    }
+    @include mq(md) {
+      right: 60px;
+    }
+    @include mq(xs) {
+      right: 40px;
+    }
+
+    a {
+      display: inline-block;
+      color: #fff;
+      font-size: 40px;
+
+      &:hover {
+        color: #de6739;
+      }
+    }
+  }
+}
+
+
+.main-menu ul li:nth-child(1),
+.main-menu ul li:nth-child(2),
+.main-menu ul li:nth-child(3),
+.main-menu ul li:nth-child(4),
+.main-menu ul li:nth-child(5) {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.main-menu ul li:nth-child(1){
+  transition: all 0.3s ease 0.2s;
+}
+.main-menu ul li:nth-child(2){
+  transition: all 0.3s ease 0.3s;
+}
+.main-menu ul li:nth-child(3){
+  transition: all 0.3s ease 0.4s;
+}
+.main-menu ul li:nth-child(4){
+  transition: all 0.3s ease 0.5s;
+}
+.main-menu ul li:nth-child(5){
+  transition: all 0.3s ease 0.6s;
+}
+
+
+.menu-area.active .main-menu ul li:nth-child(1),
+.menu-area.active .main-menu ul li:nth-child(2),
+.menu-area.active .main-menu ul li:nth-child(3),
+.menu-area.active .main-menu ul li:nth-child(4),
+.menu-area.active .main-menu ul li:nth-child(5) {
+  transform: translateY(0);
+  opacity: 1;
+}

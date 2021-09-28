@@ -1,0 +1,96 @@
+@use "common" as *;
+
+
+.slider-area {
+  height: 940px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  @include mq(lg) {
+    height: 850px;
+  }
+  @include mq(md) {
+    height: 850px;
+  }
+  @include mq(xs) {
+    height: 700px;
+  }
+}
+
+.single-slide {
+  visibility: hidden;
+  opacity: 0;
+  @include transition(0.3s);
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .slider-content {
+    .slider-title {
+      padding-top: 240px;
+      color: #ff7277;
+      font-size: 55px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.2;
+      @include mq(lg) {
+        font-size: 52px;
+      }
+      @include mq(md) {
+        font-size: 50px;
+      }
+      @include mq(xs) {
+        font-size: 20px;
+      }
+    }
+
+    a {
+      text-decoration: underline;
+      padding: 15px 30px !important;
+      background: #333f48 !important;
+      color: white !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 5px !important;
+      transition: all .2s ease-in-out !important;
+      text-decoration-color: transparent !important;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+
+}
+
+.scroll-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translateY(-50%);
+
+  a {
+    display: inline-block;
+    color: #d9d9d6;
+    font-size: 34px;
+    animation: scroll-ani 2s ease infinite;
+  }
+}
+
+@keyframes scroll-ani {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(30px);
+    opacity: 0.5;
+  }
+}

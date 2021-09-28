@@ -1,0 +1,82 @@
+@use "common" as *;
+
+.about-area {
+  position: relative;
+  padding-top: 350px;
+  @include mq(xl) {
+    padding-top: 250px;
+  }
+  @include mq(lg) {
+    padding-top: 200px;
+  }
+  @include mq(md) {
+    padding-top: 150px;
+  }
+  @include mq(xs) {
+    padding-top: 100px;
+  }
+}
+
+.about-logo {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  transform: translateX(-50%);
+
+  img {
+    width: 40%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5px;
+    width: 100px;
+    background: #ef7a7a;
+    @include mq(xl) {
+      bottom: -135px;
+    }
+    @include mq(lg) {
+      bottom: -90px;
+    }
+    @include mq(md) {
+      bottom: -50px;
+    }
+    @include mq(xs) {
+      bottom: -40px;
+    }
+  }
+}
+
+.about-content-1 {
+  p {
+    margin: 0.85em 0;
+    color: #383838;
+    font-size: 18px;
+    margin-right: 50px;
+    @include mq(lg){
+      margin-right: 0;
+    }
+    @include mq(md){
+      margin-right: 0;
+    }
+    @include mq(xs){
+      margin-right: 0;
+    }
+  }
+}
+
+.about-content-2 {
+  p {
+    margin: 0.85em 0;
+    color: #383838;
+    font-size: 18px;
+  }
+}
+
